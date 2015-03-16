@@ -25,10 +25,8 @@
      */
 
 
-
-
     /* CONFIG BLOCK START */
-    $apiKey = 'AIzaSyAe3Fa0uMaHUi88TkHZjuJ4ajQVhjqI9uA'; // Your API Key Would Go Here
+	$apiKey = 'AIzaSyAe3Fa0uMaHUi88TkHZjuJ4ajQVhjqI9uA'; // Your API Key Would Go Here
 
     // Your calendar id would go here, it can be found in your calendar details.
     $calendarId = 'frc1294@gmail.com';
@@ -38,11 +36,13 @@
 
     $debugMode = false;
 
+    date_default_timezone_set('America/Los_Angeles');
+
     $reqSettings = array( // Create an array of options used in the request to Google
         'orderBy' => 'startTime',
         'timeMin' => date("Y-m-d\TH:i:sP"), // Minimum start time for events returned. Set to current time.
         'maxResults' => 2, // Number of events to get
-        'showDeleted' => false, // Don't return deleted elements.
+        'showDeleted' => false, // Don't return deleted events.
         'singleEvents' => true // Return recurring events as multiple events, not one.
     );
 
@@ -53,7 +53,7 @@
 
 
 
-    $data; // initialize a variable to hold the data
+    $data = null; // initialize a variable to hold the data
 
     if($debugMode){ // set up error reporting and say hi
         error_reporting(E_ALL);
@@ -102,7 +102,7 @@
     if($data){
         if($debugMode){echo "<p>About ready to format the data!</p>";}
         foreach($data as $event){
-            $date;
+            $date = null;
             if($event -> start -> dateTime){ // if the event has a dateTime, it doesn't have a date
                 $date = date_format(date_create($event -> start -> dateTime), $dateFormat); // get the start date from the event
             }else{
@@ -115,7 +115,7 @@
 
             $name = $event -> summary; // get the event title
 
-            $timeString; // create the var later used in the final element
+            $timeString = null; // create the var later used in the final element
             $start = $event -> start; // get refrences to the start and end time objects
             $end = $event -> end;
             $tempStart = $start -> dateTime; // create some temp vars
@@ -139,12 +139,12 @@
             }
 
             $location = $event -> location; // get the event location
-            $mapLink; // create a var for the map link
+            $mapLink = null; // create a var for the map link
             $link = $event -> htmlLink; // get the link to the event in gcal
             // If the location is Eastlake High School, show a different set of text (Only show "Eastlake High School").
             // If empty, show nothing and disable the map link button
             // Otherwise, just show the event
-            $temp;
+            $temp = null;
             preg_match("/Eastlake High School/", $location, $temp);
             if(count($temp) > 0){
                 $location = 'Eastlake High School<br>';
