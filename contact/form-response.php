@@ -62,7 +62,9 @@
 
     // act
     foreach ($sendToEmails as $email) {
-        mail($email, $emailSubject, $email, "MIME-Version: 1.0\r\nContent-type:text/html;charset=UTF-8\r\nFrom: <webmaster@team1294.org>\r\n");
+        if(!mail($email, $emailSubject, $email, "MIME-Version: 1.0\r\nContent-type:text/html;charset=UTF-8\r\nFrom: <webmaster@team1294.org>\r\n")) {
+        	error();	// if the mail call returns false, the email had an issue being sent out
+        }
     }
 
     // respond
