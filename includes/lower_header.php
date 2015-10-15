@@ -33,7 +33,7 @@
             }
 
 
-            //Figures out what page your on for the top bar menu
+            //Figures out what page you're on for the top bar menu
             // gets the current URI, remove the left / and then everything after the / on the right
             $directory = explode('/', ltrim($_SERVER['REQUEST_URI'], '/'));
 
