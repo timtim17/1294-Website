@@ -34,7 +34,7 @@
                         </-->
                         <br>
                         <ul class="no-bullets">
-                            <li><i class="fa fa-file-text-o icon-bullet"></i><a href="#">Mailing List Signup</a></li>
+                            <li><i class="fa fa-file-text-o icon-bullet"></i><a href="http://goo.gl/forms/X1tLHXgxnu">Mailing List Signup</a></li>
                         </ul>
                     </div>
                 </div>
