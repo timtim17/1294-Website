@@ -150,7 +150,7 @@
                     </p>
                     <p class="text-center" style="font-style:italic; font-weight: bold;">
                         If you want to join the team, you can join.<br>
-                        No experience neccasary.<br>
+                        No experience necessary.<br>
                     </p>
                     <br>
                     <p>
